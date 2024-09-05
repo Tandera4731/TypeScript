@@ -4,11 +4,14 @@ export namespace Financeiro {
     }
 
     export function calcularDesconto(valor: number, taxaDesc: number): number {
-        return valor * (taxaDesc / 100);
+        return valor - (valor * (taxaDesc / 100));
     }
 
     export class Orcamento {
-        valorTotal: number;
-        itens: string[];
+        constructor(public valorTotal: number, public itens: string[]) { }
+
+        OrcamentoR(): string {
+            return `Itens: ${this.itens.join(', ')}, ValorTotal: R$${this.valorTotal}`;
+        };
     }
 }
